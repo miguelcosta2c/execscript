@@ -6,6 +6,8 @@ ExecScript is a robust application for the secure execution of encrypted files i
 
 **Note:** The use of the sister project, **CriptoScript**, is recommended for creating and manipulating the encrypted files used in this application.
 
+link: https://github.com/miguelcosta2c/criptoscript
+
 Developed with **PySide6**, **oracledb**, and **cryptography**, ExecScript ensures a controlled environment for executing sensitive files.
 
 ## Features
