@@ -1,23 +1,24 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'window.ui'
+# Form generated from reading UI file 'window.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.1
+# Created by: Qt User Interface Compiler version 6.8.1
 ##
-## WARNING! All changes made in this file will be lost when recompiling UI file!
+# WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
+                            QMetaObject, QObject, QPoint, QRect,
+                            QSize, QTime, QUrl, Qt)
 from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
+                           QFont, QFontDatabase, QGradient, QIcon,
+                           QImage, QKeySequence, QLinearGradient, QPainter,
+                           QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
-    QLabel, QLineEdit, QMainWindow, QPushButton,
-    QRadioButton, QSizePolicy, QVBoxLayout, QWidget)
+                               QLabel, QLineEdit, QMainWindow, QPushButton,
+                               QRadioButton, QSizePolicy, QVBoxLayout, QWidget)
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -27,51 +28,51 @@ class Ui_MainWindow(object):
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"#centralwidget {\n"
-"	background-color: #3b3a3a\n"
-"}\n"
-"\n"
-"QFrame {\n"
-"	background-color: #575757;\n"
-"	padding: 5px;\n"
-"	border: 5px solid #575757;\n"
-"	border-radius: 10px\n"
-"}\n"
-"\n"
-"QLabel, QRadioButton {\n"
-"	color: #fff\n"
-"}\n"
-"\n"
-"QLineEdit, QPushButton {\n"
-"	padding: 6px\n"
-"}\n"
-"\n"
-"QLineEdit {\n"
-"	border: 1px solid #fff;\n"
-"	border-radius: 2px;\n"
-"}\n"
-"\n"
-"QLineEdit:disabled {\n"
-"	background-color: #3b3a3a;\n"
-"	border: 1px solid #3b3a3a;\n"
-"}\n"
-"\n"
-"QPushButton {\n"
-"	background-color: #f59b42;\n"
-"	border: 1px solid #f59b42;\n"
-"	border-radius: 2px;\n"
-"	color: #fff;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"	background-color: orange;\n"
-"	border: 1px solid orange;\n"
-"}\n"
-"\n"
-"#pushButtonTest {\n"
-"	margin-top: 5px\n"
-"}\n"
-"\n"
-"")
+                                         "	background-color: #3b3a3a\n"
+                                         "}\n"
+                                         "\n"
+                                         "QFrame {\n"
+                                         "	background-color: #575757;\n"
+                                         "	padding: 5px;\n"
+                                         "	border: 5px solid #575757;\n"
+                                         "	border-radius: 10px\n"
+                                         "}\n"
+                                         "\n"
+                                         "QLabel, QRadioButton {\n"
+                                         "	color: #fff\n"
+                                         "}\n"
+                                         "\n"
+                                         "QLineEdit, QPushButton {\n"
+                                         "	padding: 6px\n"
+                                         "}\n"
+                                         "\n"
+                                         "QLineEdit {\n"
+                                         "	border: 1px solid #fff;\n"
+                                         "	border-radius: 2px;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QLineEdit:disabled {\n"
+                                         "	background-color: #3b3a3a;\n"
+                                         "	border: 1px solid #3b3a3a;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QPushButton {\n"
+                                         "	background-color: #f59b42;\n"
+                                         "	border: 1px solid #f59b42;\n"
+                                         "	border-radius: 2px;\n"
+                                         "	color: #fff;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QPushButton:hover {\n"
+                                         "	background-color: orange;\n"
+                                         "	border: 1px solid orange;\n"
+                                         "}\n"
+                                         "\n"
+                                         "#pushButtonTest {\n"
+                                         "	margin-top: 5px\n"
+                                         "}\n"
+                                         "\n"
+                                         "")
         self.gridLayout = QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName(u"gridLayout")
         self.frame = QFrame(self.centralwidget)
@@ -87,7 +88,7 @@ class Ui_MainWindow(object):
         self.label.setMinimumSize(QSize(0, 60))
         self.label.setMaximumSize(QSize(16777215, 60))
         font = QFont()
-        font.setPointSize(28)
+        font.setPointSize(21)
         font.setBold(True)
         self.label.setFont(font)
         self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -126,7 +127,6 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.lineEditUser)
 
-
         self.verticalLayout_3.addLayout(self.horizontalLayout)
 
         self.horizontalLayout_2 = QHBoxLayout()
@@ -144,7 +144,6 @@ class Ui_MainWindow(object):
         self.lineEditPwd.setMaximumSize(QSize(16777215, 32))
 
         self.horizontalLayout_2.addWidget(self.lineEditPwd)
-
 
         self.verticalLayout_3.addLayout(self.horizontalLayout_2)
 
@@ -164,7 +163,6 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3.addWidget(self.lineEditHost)
 
-
         self.verticalLayout_3.addLayout(self.horizontalLayout_3)
 
         self.horizontalLayout_4 = QHBoxLayout()
@@ -182,7 +180,6 @@ class Ui_MainWindow(object):
         self.lineEditPort.setMaximumSize(QSize(16777215, 32))
 
         self.horizontalLayout_4.addWidget(self.lineEditPort)
-
 
         self.verticalLayout_3.addLayout(self.horizontalLayout_4)
 
@@ -202,7 +199,6 @@ class Ui_MainWindow(object):
         self.lineEditSID.setMaximumSize(QSize(16777215, 32))
 
         self.horizontalLayout_5.addWidget(self.lineEditSID)
-
 
         self.verticalLayout_3.addLayout(self.horizontalLayout_5)
 
@@ -224,14 +220,12 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_6.addWidget(self.lineEditSerName)
 
-
         self.verticalLayout_3.addLayout(self.horizontalLayout_6)
 
         self.pushButtonTest = QPushButton(self.frame)
         self.pushButtonTest.setObjectName(u"pushButtonTest")
 
         self.verticalLayout_3.addWidget(self.pushButtonTest)
-
 
         self.verticalLayout_6.addLayout(self.verticalLayout_3)
 
@@ -271,9 +265,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_7.addWidget(self.pushButtonScript)
 
-
         self.verticalLayout.addLayout(self.horizontalLayout_7)
-
 
         self.verticalLayout_4.addLayout(self.verticalLayout)
 
@@ -303,12 +295,9 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_8.addWidget(self.pushButtonKey)
 
-
         self.verticalLayout_2.addLayout(self.horizontalLayout_8)
 
-
         self.verticalLayout_4.addLayout(self.verticalLayout_2)
-
 
         self.verticalLayout_6.addLayout(self.verticalLayout_4)
 
@@ -317,40 +306,61 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_6.addWidget(self.pushButton_4)
 
-
         self.gridLayout.addWidget(self.frame, 0, 0, 1, 1)
 
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
         self.radioButtonSID.toggled.connect(self.lineEditSID.setEnabled)
-        self.radioButtonSerName.toggled.connect(self.lineEditSerName.setEnabled)
+        self.radioButtonSerName.toggled.connect(
+            self.lineEditSerName.setEnabled)
 
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"Executador de Scripts", None))
-        self.label_8.setText(QCoreApplication.translate("MainWindow", u"Conex\u00e3o Oracle Database", None))
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"User:", None))
-        self.lineEditUser.setPlaceholderText(QCoreApplication.translate("MainWindow", u"User...", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Password:", None))
-        self.lineEditPwd.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Password...", None))
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Hostname:", None))
-        self.lineEditHost.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Hostname", None))
-        self.label_5.setText(QCoreApplication.translate("MainWindow", u"Port:", None))
-        self.lineEditPort.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Port...", None))
-        self.radioButtonSID.setText(QCoreApplication.translate("MainWindow", u"SID:", None))
-        self.radioButtonSerName.setText(QCoreApplication.translate("MainWindow", u"Service Name:", None))
-        self.pushButtonTest.setText(QCoreApplication.translate("MainWindow", u"Testar conex\u00e3o", None))
-        self.label_9.setText(QCoreApplication.translate("MainWindow", u"Selecionar Script", None))
-        self.label_6.setText(QCoreApplication.translate("MainWindow", u"Script:", None))
-        self.lineEditScript.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Selecione um Script...", None))
-        self.pushButtonScript.setText(QCoreApplication.translate("MainWindow", u"Selecionar Arquivo", None))
-        self.label_7.setText(QCoreApplication.translate("MainWindow", u"Key:", None))
-        self.lineEditKey.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Selecione uma Chave...", None))
-        self.pushButtonKey.setText(QCoreApplication.translate("MainWindow", u"Selecionar Arquivo", None))
-        self.pushButton_4.setText(QCoreApplication.translate("MainWindow", u"Run", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate(
+            "MainWindow", u"MainWindow", None))
+        self.label.setText(QCoreApplication.translate(
+            "MainWindow", u"Scripts Executing", None))
+        self.label_8.setText(QCoreApplication.translate(
+            "MainWindow", u"Oracle Database Connection", None))
+        self.label_2.setText(QCoreApplication.translate(
+            "MainWindow", u"User:", None))
+        self.lineEditUser.setPlaceholderText(
+            QCoreApplication.translate("MainWindow", u"User...", None))
+        self.label_3.setText(QCoreApplication.translate(
+            "MainWindow", u"Password:", None))
+        self.lineEditPwd.setPlaceholderText(
+            QCoreApplication.translate("MainWindow", u"Password...", None))
+        self.label_4.setText(QCoreApplication.translate(
+            "MainWindow", u"Hostname:", None))
+        self.lineEditHost.setPlaceholderText(
+            QCoreApplication.translate("MainWindow", u"Hostname", None))
+        self.label_5.setText(QCoreApplication.translate(
+            "MainWindow", u"Port:", None))
+        self.lineEditPort.setPlaceholderText(
+            QCoreApplication.translate("MainWindow", u"Port...", None))
+        self.radioButtonSID.setText(
+            QCoreApplication.translate("MainWindow", u"SID:", None))
+        self.radioButtonSerName.setText(
+            QCoreApplication.translate("MainWindow", u"Service Name:", None))
+        self.pushButtonTest.setText(QCoreApplication.translate(
+            "MainWindow", u"Test Connection", None))
+        self.label_9.setText(QCoreApplication.translate(
+            "MainWindow", u"Select script", None))
+        self.label_6.setText(QCoreApplication.translate(
+            "MainWindow", u"Script:", None))
+        self.lineEditScript.setPlaceholderText(
+            QCoreApplication.translate("MainWindow", u"Select script...", None))
+        self.pushButtonScript.setText(QCoreApplication.translate(
+            "MainWindow", u"Select file", None))
+        self.label_7.setText(QCoreApplication.translate(
+            "MainWindow", u"Key:", None))
+        self.lineEditKey.setPlaceholderText(QCoreApplication.translate(
+            "MainWindow", u"Select key...", None))
+        self.pushButtonKey.setText(QCoreApplication.translate(
+            "MainWindow", u"Select file", None))
+        self.pushButton_4.setText(
+            QCoreApplication.translate("MainWindow", u"Run", None))
     # retranslateUi
-

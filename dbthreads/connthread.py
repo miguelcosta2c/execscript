@@ -3,6 +3,7 @@
 from PySide6.QtCore import QThread, Signal
 import oracledb
 
+
 class ConexaoThread(QThread):
     # Sinalizadores para mandar pra MainWindow o que ocorrer na thread
     finalizado = Signal(bool)
@@ -15,28 +16,29 @@ class ConexaoThread(QThread):
         self.user = user
         self.pwd = pwd
         self.dsn = dsn
-    
+
     def run(self) -> None:
-        """Função que roda a Thread""" 
+        """Função que roda a Thread"""
         # inicializando variáveis para poder fechar após a finalização da thread
         conexao = None
-        cursor = None 
+        cursor = None
         # Tentando estabelecer uma conexão com o Banco
         try:
             # Sinal Emitido para dizer que a thread foi iniciada
             # E desabilitar os botões da MainWindow
-            self.finalizado.emit(False) # button.setEnabled
-            conexao = oracledb.connect( # Conexão com o banco de dados Oracle
+            self.finalizado.emit(False)  # button.setEnabled
+            conexao = oracledb.connect(  # Conexão com o banco de dados Oracle
                 user=self.user,
                 password=self.pwd,
                 dsn=self.dsn
             )
-            cursor = conexao.cursor() # Cria um cursor
+            cursor = conexao.cursor()  # Cria um cursor
             # Verificando se a conexão foi bem sucedida
-            cursor.execute("SELECT 'Conexão bem-sucedida' FROM dual")
-            resultado = cursor.fetchone() # Pegando o resultado
+            cursor.execute("SELECT 'Connection successful' FROM dual")
+            resultado = cursor.fetchone()  # Pegando o resultado
 
-            self.sucesso.emit(resultado[0]) # Emitindo Resultado para MainWindow
+            # Emitindo Resultado para MainWindow
+            self.sucesso.emit(resultado[0])
 
         # Tratando Erros
         except oracledb.Error as e:
@@ -45,6 +47,8 @@ class ConexaoThread(QThread):
         finally:
             # Se houver erro ou não ele finaliza e fecha a conexão se elas
             # existirem
-            if cursor: cursor.close()
-            if conexao: conexao.close()
+            if cursor:
+                cursor.close()
+            if conexao:
+                conexao.close()
             self.finalizado.emit(True)

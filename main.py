@@ -1,7 +1,7 @@
 """Configuração da janela"""
 
 from PySide6.QtCore import Qt
-from PySide6.QtWidgets import (QApplication, QMainWindow, QFileDialog, 
+from PySide6.QtWidgets import (QApplication, QMainWindow, QFileDialog,
                                QMessageBox, QProgressDialog)
 from PySide6.QtGui import QPixmap
 import sys
@@ -13,12 +13,13 @@ import dbthreads
 import utils.decript as decript
 from utils.resource_path import get_resource_path
 
+
 class MainWindow(Ui_MainWindow, QMainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
         self.config()
-    
+
     def config(self):
         """Configurações básicas da Window como, as conexões entre Signals e Slots"""
         self.window_icon = QPixmap(get_resource_path("images\\ExecScript.ico"))
@@ -28,27 +29,37 @@ class MainWindow(Ui_MainWindow, QMainWindow):
         self.pushButtonKey.clicked.connect(self.selecionar_key)
         self.pushButton_4.clicked.connect(self.run_script)
         self.pushButtonTest.clicked.connect(self.testar_conexao)
-        self.conexao_lines = [self.lineEditUser, self.lineEditPwd,
-                              self.lineEditHost, self.lineEditPort,
-                              self.lineEditSID, self.lineEditSerName]
-        self.script_lines = [self.lineEditScript, self.lineEditKey]
+        self.conexao_lines = [
+            self.lineEditUser,
+            self.lineEditPwd,
+            self.lineEditHost,
+            self.lineEditPort,
+            self.lineEditSID,
+            self.lineEditSerName
+        ]
+        self.script_lines = [
+            self.lineEditScript,
+            self.lineEditKey
+        ]
         self.textos = []
         self.arquivos = []
         self.dialog = None
-    
+
     def verificar_conteudo_conexao(self):
         # Tratando as QLineEdit da área de conexão
-        self.textos = [line.text().strip() for line in self.conexao_lines if line.text().strip()]
+        self.textos = [line.text().strip()
+                       for line in self.conexao_lines if line.text().strip()]
         if len(self.textos) != 5:
-            self.exibir_erro("Preencha os campos de conexão")
+            self.exibir_erro("Enter a valid connection")
             return False
         return True
-    
+
     def verificar_conteudo_script(self):
-        # Tranatando as QLineEdit da área de selecionar Script
-        self.arquivos = [line.text().strip() for line in self.script_lines if line.text().strip()]
+        # Tratando as QLineEdit da área de selecionar Script
+        self.arquivos = [line.text().strip()
+                         for line in self.script_lines if line.text().strip()]
         if len(self.arquivos) != 2:
-            self.exibir_erro("Preencha os campos de script")
+            self.exibir_erro("Enter a valid script")
             return False
         return True
 
@@ -56,7 +67,7 @@ class MainWindow(Ui_MainWindow, QMainWindow):
         """Função para testar a conexão com o banco de dados"""
         if not self.verificar_conteudo_conexao():
             return
-        
+
         # Pegando informações inseridas pelo usuário
         user, pwd, host, porta, service = self.textos
         dsn = f"{host}:{porta}/{service}"
@@ -68,14 +79,14 @@ class MainWindow(Ui_MainWindow, QMainWindow):
         self.thread_conexao.finalizado.connect(self.pushButtonTest.setEnabled)
         self.thread_conexao.finalizado.connect(self.pushButton_4.setEnabled)
         self.thread_conexao.start()
-    
+
     def exibir_sucesso(self, mensagem):
         """Função para exibir mensagem de sucesso"""
-        QMessageBox.information(self, "Sucesso!", mensagem)
-    
+        QMessageBox.information(self, "Success!", mensagem)
+
     def exibir_erro(self, mensagem):
         """Função para exibir mensagem de erro"""
-        QMessageBox.critical(self, "Erro!", mensagem) 
+        QMessageBox.critical(self, "Error!", mensagem)
 
     def run_script(self) -> None:
         """Função para rodar o Script selecionado no banco selecionado"""
@@ -87,14 +98,15 @@ class MainWindow(Ui_MainWindow, QMainWindow):
         try:
             with open(script, 'r') as arquivo:
                 conteudo = arquivo.read()
+
             with open(key, 'r') as arquivo:
                 chave = arquivo.read()
+
             conteudo_bytes = bytes.fromhex(conteudo)
             descriptografado = decript.descriptografar(chave, conteudo_bytes)
             comando = descriptografado.decode('utf-8')
-            print(comando)
         except Exception as e:
-            QMessageBox.critical(self, "Erro ao descriptografar o arquivo", str(e))
+            QMessageBox.critical(self, "Error decrypting file", str(e))
             return
 
         # bloco de execucao do script
@@ -109,35 +121,35 @@ class MainWindow(Ui_MainWindow, QMainWindow):
         self.thread_run.progresso.connect(self.update_progress)
 
         # Configuração da barra de progresso
-        self.dialog = QProgressDialog("Executando Script", 
-                                      "Cancelar", 0, 100, self)
-        
+        self.dialog = QProgressDialog("Executing Script",
+                                      "Cancel", 0, 100, self)
+
         self.dialog.setWindowModality(Qt.WindowModality.WindowModal)
         self.dialog.show()
 
         self.thread_run.start()
-    
+
     def update_progress(self, value: int) -> None:
         """Função para atualizar o valor da barra de progresso"""
         if self.dialog:
             self.dialog.setValue(value)
-    
+
     def finalizar_script(self):
         """Função para ser executada depois da finalização da thread"""
         if self.dialog:
             self.dialog.close()
             self.dialog = None
-    
+
     def selecionar_script(self):
         """Função para selecionar um script"""
-        file = self.selecionar_arquivo("Arquivo Criptografado (*.enc)")
+        file = self.selecionar_arquivo("Encrypted File (*.enc)")
         if not file:
             return
         self.lineEditScript.setText(file)
-    
+
     def selecionar_key(self):
         """Função para selecionar uma chave"""
-        file = self.selecionar_arquivo("Arquivo Criptografado (*.key)")
+        file = self.selecionar_arquivo("Encypted File (*.key)")
         if not file:
             return
         self.lineEditKey.setText(file)
@@ -146,13 +158,14 @@ class MainWindow(Ui_MainWindow, QMainWindow):
         """Função para selecionar um arquivo"""
         file, _ = QFileDialog.getOpenFileName(
             self,
-            caption="Selecione um arquivo",
+            caption="Select a file",
             dir='.',
-            filter=f"{tipo};;Todos os Arquivos (*)"
+            filter=f"{tipo};;All Files (*)"
         )
         if file:
             return file
         return False
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
